@@ -36,6 +36,38 @@ const restaurant = {
   }
 };
 
+// SPREAD OPERATOR
+
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+
+const newArr = [1, 2, ...arr];
+console.log(newArr);
+
+console.log(...newArr);
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+
+// Copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+console.log(mainMenuCopy);
+
+// Join 2 arrays
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+// Iterables: arrays, strings, maps, sets. NOT objects
+const str = "Ryan";
+const letters = [...str, ' ', 'S.'];
+console.log(letters);
+
+
+
+
+/*
+///////////// DESTRUCTURING OBJECTS
 restaurant.orderDelivery({
   time: '22:30',
   address: 'Via del Sole, 21',
@@ -48,7 +80,6 @@ restaurant.orderDelivery({
   starterIndex: 1
 })
 
-///////////// DESTRUCTURING OBJECTS
 const { name, openingHours, categories } = restaurant;
 console.log(name, openingHours, categories);
 
