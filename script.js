@@ -31,9 +31,22 @@ const restaurant = {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  orderDelivery: function({starterIndex = 1, mainIndex = 0, time = '20:00', address}) {
-    console.log(`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`)
-  }
+  orderDelivery: function ({
+    starterIndex = 1,
+    mainIndex = 0,
+    time = '20:00',
+    address,
+  }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    );
+  },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here's your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
+    );
+  },
 };
 
 // SPREAD OPERATOR
@@ -59,12 +72,27 @@ const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 console.log(menu);
 
 // Iterables: arrays, strings, maps, sets. NOT objects
-const str = "Ryan";
+const str = 'Jonas';
 const letters = [...str, ' ', 'S.'];
 console.log(letters);
 
+// Real-world example
+const ingredients = [
+  prompt("Let's make pasta! Ingredient 1?"),
+  prompt('Ingredient 2?'),
+  prompt('Ingredient 3?'),
+];
+console.log(ingredients);
 
+restaurant.orderPasta(...ingredients);
 
+// Objects
+const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Frederico' };
+console.log(newRestaurant);
+
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Ristorante Roma';
+console.log(restaurantCopy);
 
 /*
 ///////////// DESTRUCTURING OBJECTS
