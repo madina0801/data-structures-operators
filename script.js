@@ -30,11 +30,9 @@ const restaurant = {
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
   openingHours,
 
-  order (starterIndex, mainIndex) {
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
-
-
 
   orderDelivery: function ({
     starterIndex = 1,
@@ -53,12 +51,34 @@ const restaurant = {
     );
   },
 
-  orderPizza: function(mainIngredient, ...otherIngredients) {
+  orderPizza: function (mainIngredient, ...otherIngredients) {
     console.log(mainIngredient, otherIngredients);
-  }
+  },
 };
 
-// OPTIONAL CHAINING 
+// OPTIONAL CHAINING
+
+// WITHOUT OPTIONAL CHAINING
+if (restaurant.openingHours && restaurant.openingHours.mon)
+  console.log(restaurant.openingHours.mon.open);
+
+// WITH OPTIONAL CHAINING
+console.log(restaurant.openingHours?.mon?.open);
+
+// Example
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On day ${day}, we open at ${open}`);
+}
+
+// ON METHODS
+console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist');
+
+// ARRAYS
+const users = [{ name: 'Jonas', email: 'hello@jonas.io' }];
+
+console.log(users[0]?.name ?? 'User array empty');
 
 /*
 // FOR-OF LOOP
