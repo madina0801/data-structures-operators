@@ -100,6 +100,8 @@ const passengerLower = passenger.toLowerCase();
 const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1);
 console.log(passengerCorrect);
 
+// fixes passenger's name
+
 const correctPassenger = function(name) {
   let nameLower = name.toLowerCase();
   let nameCorrect = nameLower[0].toUpperCase() + nameLower.slice(1);
@@ -108,6 +110,67 @@ const correctPassenger = function(name) {
 
 correctPassenger('jAke');
 correctPassenger('jAy');
+
+// Comparing emails
+
+const email = 'hello@mail.com';
+const loginEmail = ' Hello@Mail.Com \n';
+
+const lowerEmail = loginEmail.toLowerCase();
+const trimmedEmail = lowerEmail.trim();
+console.log(trimmedEmail);
+
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(email === normalizedEmail);
+
+const changeEmails = function(email) {
+  return email.toLowerCase().trim();
+}
+
+console.log(changeEmails('Jonas@IO.com  '));
+
+// Replacing
+
+const priceGB = '288,97💷';
+const priceUS = priceGB.replace('💷', '💵').replace(',', '.');
+
+console.log(priceGB);
+console.log(priceUS);
+
+const announcement = 'Boarding door 23! Boarding door 23!';
+
+// console.log(announcement.replaceAll('door', 'gate'));
+
+// Replacing using regular expressions so all the occurences will be targeted
+console.log(announcement.replace(/door/g, 'gate'));
+
+// Booleans
+const plane1 = 'A320neo';
+console.log(plane1.includes('A320'));
+console.log(plane1.includes('A340'));
+console.log(plane1.startsWith('A'));
+console.log(plane1.startsWith('Air'));
+console.log(plane1.endsWith('neo'));
+console.log(plane1.endsWith('bus'));
+
+// Practice
+
+const checkBaggage = function(items) {
+  const baggage = items.toLowerCase();
+  if(baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are not allowed on board');
+  } else {
+    console.log('Welcome aboard!');
+  }
+}
+
+checkBaggage('I have a laptop, some Food and a pocket Knife');
+checkBaggage('Socks and camera');
+
+
+
+
+
 
 
 /*
