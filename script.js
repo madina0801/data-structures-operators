@@ -95,10 +95,10 @@ checkMiddleSeat('3E');
 console.log(airline.toLowerCase());
 console.log(airline.toUpperCase());
 
-const passenger = 'jOnAS';
-const passengerLower = passenger.toLowerCase();
-const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1);
-console.log(passengerCorrect);
+// const passenger = 'jOnAS';
+// const passengerLower = passenger.toLowerCase();
+// const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1);
+// console.log(passengerCorrect);
 
 // fixes passenger's name
 
@@ -167,10 +167,56 @@ const checkBaggage = function(items) {
 checkBaggage('I have a laptop, some Food and a pocket Knife');
 checkBaggage('Socks and camera');
 
+// Split and Join
 
+console.log('a+very+nice+string'.split('+'));
+console.log('Jane Doe'.split(' '));
 
+const [firstName, lastName] = 'Jake Lee'.split(' ');
 
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
 
+const capitalizeName = function(name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+
+  for(const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+    // console.log(namesUpper);
+  }
+  console.log(namesUpper.join(' '));
+}
+capitalizeName('jessica ann smith davis');
+capitalizeName('jake lee');
+
+// Padding
+
+const message = 'Go to gate 23!';
+console.log(message.padStart(20, '+').padEnd(30, '+'));
+console.log('Jonas'.padStart(20, '+').padEnd(30, '+'));
+
+const maskCreditCard = function(num) {
+  // const str = num + '';
+  const str = String(num);
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+}
+
+console.log(maskCreditCard(123456789));
+console.log(maskCreditCard(1234567891234567));
+console.log(maskCreditCard('1234567891234567789456321'));
+
+// Repeat
+
+const message2 = 'Bad weather... All Departures Delayed... ';
+console.log(message2.repeat(5));
+
+const planesInLine = function(n) {
+  console.log(`There are ${n} planes in line ${'✈'.repeat(n)}`);
+}
+planesInLine(5);
 
 
 /*
@@ -178,7 +224,7 @@ checkBaggage('Socks and camera');
 // MAPS FUNDAMENTALS
 
 const rest = new Map();
-rest.set('name', 'Classico Italiano');
+rest.set('name', 'Classico Italia, 'no');
 rest.set(1, 'Firenze, Italy');
 console.log(rest.set(2, 'Lisbon, Portugal'));
 
