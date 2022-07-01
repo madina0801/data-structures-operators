@@ -1,10 +1,7 @@
 'use strict';
 
-// Data needed for a later exercise
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
-
 // Data needed for first part of the section
+/*
 const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
 const openingHours = {
@@ -101,7 +98,7 @@ console.log(airline.toUpperCase());
 // console.log(passengerCorrect);
 
 // fixes passenger's name
-
+/*
 const correctPassenger = function(name) {
   let nameLower = name.toLowerCase();
   let nameCorrect = nameLower[0].toUpperCase() + nameLower.slice(1);
@@ -627,3 +624,20 @@ console.log(i, j, k);
 const [p, q, r = 1] = [8, 9];
 console.log(p, q, r); // 8 9 1
 */
+
+
+// STRING METHODS PRACTICE
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+const getCode = str => str.slice(0, 3).toUpperCase();
+
+for(const flight of flights.split('+')) {
+  let [status, from, to, time] = flight.split(';');
+  from = from.slice(0, 3).toUpperCase();
+  const output = `${status.includes('_Delayed') ? '🔴' : ''}${status.replaceAll('_', ' ')} from ${getCode(from)} to ${getCode(to)} (${time})`.padStart(45);
+  console.log(output);
+
+  // console.log(status, from, to, time);
+  // console.log(flight);
+}
